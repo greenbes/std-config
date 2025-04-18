@@ -63,11 +63,11 @@ def main():
                 setattr(config, field_name, field_value)
     
     # Example usage
-    print(f"Configuration loaded:")
-    print(f"  Log level: {config.log_level}")
-    print(f"  XDG data home: {config.xdg_data_home}")
-    print(f"  XDG config home: {config.xdg_config_home}")
-    print(f"  XDG state home: {config.xdg_state_home}")
+    print("Configuration loaded:")
+    for field_name, field_info in StdConfig.model_fields.items():
+        value = getattr(config, field_name)
+        label = field_info.description or field_name.replace("_", " ").capitalize()
+        print(f"  {label}: {value}")
 
 
 if __name__ == "__main__":
