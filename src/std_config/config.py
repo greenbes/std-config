@@ -48,3 +48,54 @@ class StdConfig(BaseSettings):
         arg_short="-l",
         arg_long="--log-level"
     )
+
+    @classmethod
+    def from_cli(cls) -> "StdConfig":
+        """Construct StdConfig instance by parsing command-line arguments."""
+        import argparse
+        from typing import get_type_hints
+
+        parser = argparse.ArgumentParser(description="Standard configuration utility")
+        type_hints = get_type_hints(cls)
+
+        for field_name, field_info in cls.model_fields.items():
+            help_text = field_info.description
+            default = field_info.default
+            extras = field_info.json_schema_extra or {}
+            arg_short = extras.get("arg_short")
+            arg_long = extras.get("arg_long")
+
+            if arg_short or arg_long:
+                options = []
+                if arg_short:
+                    options.append(arg_short)
+                if arg_long:
+                    options.append(arg_long)
+
+                kwargs = {"help": help_text, "default": default}
+                if field_name in type_hints and hasattr(type_hints[field_name], "__members__"):
+                    kwargs["choices"] = [level.value for level in type_hints[field_name].__members__.values()]
+
+                parser.add_argument(*options, **kwargs)
+
+        args = parser.parse_args()
+        config = cls()
+        args_dict = vars(args)
+
+        for field_name, field_info in cls.model_fields.items():
+            extras = field_info.json_schema_extra or {}
+            arg_long = extras.get("arg_long")
+            arg_short = extras.get("arg_short")
+
+            arg_name = None
+            if arg_long and arg_long.startswith("--"):
+                arg_name = arg_long[2:]
+            elif arg_short and arg_short.startswith("-"):
+                arg_name = arg_short[1:]
+
+            if arg_name and arg_name in args_dict:
+                value = args_dict[arg_name]
+                if value is not None and value != field_info.default:
+                    setattr(config, field_name, value)
+
+        return config
