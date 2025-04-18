@@ -2,6 +2,25 @@
 
 > This is just a convenience library to handle a common pattern and introduces no new functionality.
 
+To use this module:
+
+1. Create a subclass of `StdConfig` (see `AIConfig` for an example)
+    - Define fields using `pydantic-settings` format
+    - Use `arg_short` and `arg_long` to specify command line arguments
+2. Create a configuration file named `config.conl` in `$XDG_CONFIG_HOME` 
+    - JSON and YAML are also supported
+3. Import the library
+    ```
+    from std_config import StdConfig
+    ```
+4. Call the configuration loader
+    ```
+    config = StdConfig.from_cli()
+    ```
+
+    - The library handles command line arguments
+    - Pydantic-settings automatically loads environment variables that match the field names
+
 Large sections of this module were written by OpenAI and Claude.
 
 ## Key Features
@@ -32,59 +51,14 @@ std-config supports configuration files in multiple formats:
 
 ## Usage
 
-### Basic Usage
-
 ```python
 from std_config import StdConfig
 
-# Load configuration from all sources
-config = StdConfig()
-
-# Access configuration values
-print(f"Log level: {config.log_level}")
-print(f"Config directory: {config.xdg_config_home}")
+# Parse configuration file and command line arguments 
+config = StdConfig.from_cli()
 
 # Print all configuration fields
 config.print_fields()
-```
-
-### Command-Line Integration
-
-```python
-from std_config import StdConfig
-
-# Parse CLI arguments automatically
-config = StdConfig.from_cli()
-```
-
-### Custom Configuration
-
-```python
-from std_config import StdConfig
-from pydantic import Field
-from typing import Optional
-
-class MyAppConfig(StdConfig):
-    """Custom application configuration."""
-    
-    app_name: str = Field(
-        default="my-app",
-        description="Application name",
-        json_schema_extra={
-            "env": "APP_NAME",
-            "arg_short": "-n", 
-            "arg_long": "--name"
-        }
-    )
-    
-    api_key: Optional[str] = Field(
-        default=None,
-        description="API key for external service",
-        json_schema_extra={
-            "env": "API_KEY",
-            "arg_long": "--api-key"
-        }
-    )
 ```
 
 ## Built-in Configuration
