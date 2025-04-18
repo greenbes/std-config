@@ -5,7 +5,7 @@ description = "Python environment loader that follows XDG"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
-    "config>=0.5.1",
     "pydantic>=2.11.3",
+    "pydantic-settings>=2.8.1",
     "xdg-base-dirs>=6.0.2",
 ]
