@@ -82,7 +82,10 @@ class StdConfig(BaseSettings):
     config_file: Optional[Path] = Field(
         default=None,
         description="Path to configuration file",
-        json_schema_extra={"arg_short": "-c", "arg_long": "--config"},
+        json_schema_extra={
+            "arg_short": "-c",
+            "arg_long": "--config"
+        },
     )
 
     @classmethod
