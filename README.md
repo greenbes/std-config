@@ -1,13 +1,6 @@
 # std-config
 
-[![PyPI Version](https://img.shields.io/pypi/v/std-config.svg)](https://pypi.org/project/std-config)
-[![Build Status](https://github.com/<username>/std-config/actions/workflows/ci.yml/badge.svg)](https://github.com/<username>/std-config/actions)
-[![Coverage Status](https://coveralls.io/repos/github/<username>/std-config/badge.svg?branch=main)](https://coveralls.io/github/<username>/std-config?branch=main)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-
-> std-config is a Pydantic-powered configuration loader that merges defaults, XDG base directories, environment variables, and command-line arguments in a sensible order. 
-
-This is just a convenience library to handle a common pattern and introduces no new functionality.
+> This is just a convenience library to handle a common pattern and introduces no new functionality.
 
 Large sections of this module were written by OpenAI and Claude.
 
@@ -32,16 +25,10 @@ Values are applied in the following order (lowest to highest priority):
 ## Supported Formats
 
 std-config supports configuration files in multiple formats:
+
 - TOML (highest priority)
 - JSON (medium priority)
 - YAML (lowest priority)
-
-Configuration files are searched in these locations by default:
-- `$XDG_CONFIG_HOME/<app_name>/config.toml`
-- `$XDG_CONFIG_HOME/<app_name>/config.json`
-- `$XDG_CONFIG_HOME/<app_name>/config.yaml`
-
-Where `<app_name>` is the lowercase name of your configuration class (e.g., `stdconfig` for `StdConfig`).
 
 ## Usage
 
