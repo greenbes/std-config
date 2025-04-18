@@ -1,35 +1,45 @@
 # std-config
 
-> Python library that implements my preferred configuration patterns
+> This module accepts a Pydantic CLASS definition that represents desired application configuration values and returns a filled object INSTANCE based on command line options, environment variables, and a configuration file. Pydantic provides data validation.
 
-This is just a thin shim on top of [xdg-base-dirs](https://github.com/srstevenson/xdg-base-dirs), [cfg](https://docs.red-dove.com/cfg/python.html) and [pydantic](https://docs.pydantic.dev/latest/).
-
-1. Evaluate the provided class and identify command line arguments
-2. Add command line arguments to `argparse`
-3. Use `argparse` to parse command line arguments
-1. Identify the XDG directories
-2. Parse command line arguments into a dictionary
-3. Load environment values into a dictionary
-4. If a configuration file was specified on the command line, load it. If not, look in 
-   the standard locations.
-5. Create a ChainMap of the dictionaries
-6. Validate types using Pydantic
-
+This is just a thin shim on top of [xdg-base-dirs](https://github.com/srstevenson/xdg-base-dirs) and [pydantic](https://docs.pydantic.dev/latest/).
 
 ## Order of Precedence
 
-Order of precedence for setting a configuration value
+Follow this logic when filling the object INSTANCE:
 
-Follow this logic in order to determine which value to use:
 ```
+    IDENTIFY xdg values from environment
+    CREATE an INSTANCE of the provided CLASS
+    ITERATE OVER fields in provided class and identify command line arguments
+    ADD command line arguments to argparse
+    CHECK command line arguments for a configuration file but do not apply other values
+    IF configuration file is available THEN
+        read configuration file
+        set INSTANCE values using values from configuration file
     IF a command line argument is provided THEN
         set value to command line argument
     ELSE IF environment variable is provided THEN
         set value to environment variable
-    ELSE IF configuration file is available THEN
-        set value from configuration file
-    ELSE set value to default
 ```
+
+## Detailed Steps to Implement the Order of Precedence
+
+1. Identify the XDG base directories to use as default prefixes
+2. Create an INSTANCE of the provided CLASS
+    - Default values handled by Pydantic definitions
+3. Iterate over the attributes in the provided class and identify command line arguments
+    - Each `Field` definition can have an optional `arg_short` parameter or an optional `arg_long` parameter 
+4. Add command line arguments to `argparse` definition 
+5. Use `argparse` to parse command line arguments
+6. If a configuration file was specified on the command line, load it. If not, look for a configuration file in the locations specified by the INSTANCE.
+    - Override defaults
+7. Identify ENVIRONMENT VARIABLES and set INSTANCE attributes 
+8. Parse COMMAND LINE ARGUMENTS and set the related INSTANCE attributes
+
+## Notes
+
+- Values not specified in the CLASS attributes are ignored
 
 ## Command Line Utility
 
