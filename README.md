@@ -5,7 +5,9 @@
 [![Coverage Status](https://coveralls.io/repos/github/<username>/std-config/badge.svg?branch=main)](https://coveralls.io/github/<username>/std-config?branch=main)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-std-config is a Pydantic-powered configuration loader that merges defaults, XDG base directories, environment variables, and command-line arguments in a sensible order.
+> std-config is a Pydantic-powered configuration loader that merges defaults, XDG base directories, environment variables, and command-line arguments in a sensible order. 
+
+This is just a convenience library to handle a common pattern and introduces no new functionality.
 
 ## Table of Contents
 - [Installation](#installation)
