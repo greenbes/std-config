@@ -6,10 +6,7 @@ def main():
     
     # Example usage
     print("Configuration loaded:")
-    for field_name, field_info in StdConfig.model_fields.items():
-        value = getattr(config, field_name)
-        label = field_info.description or field_name.replace("_", " ").capitalize()
-        print(f"  {label}: {value}")
+    config.print_fields()
 
 
 if __name__ == "__main__":
