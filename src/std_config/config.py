@@ -96,19 +96,20 @@ class StdConfig(BaseSettings):
         Load configuration from environment variables for fields with an environment_variable extra.
         """
         import os
+        from pydantic import TypeAdapter, ValidationError
+
         for field_name, field_info in self.model_fields.items():
             extras = field_info.json_schema_extra or {}
             env_var = extras.get("environment_variable")
             if env_var:
-                value = os.getenv(env_var)
-                if value is not None and value != "":
-                    # Cast to the appropriate type
-                    typ = field_info.annotation
+                raw = os.getenv(env_var)
+                if raw:
+                    adapter = TypeAdapter(field_info.annotation)
                     try:
-                        casted = typ(value)
-                    except Exception:
-                        casted = value
-                    setattr(self, field_name, casted)
+                        value = adapter.validate_python(raw)
+                    except ValidationError:
+                        value = raw
+                    setattr(self, field_name, value)
         return self
 
     def print_fields(self) -> None:
