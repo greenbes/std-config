@@ -55,14 +55,26 @@ The *first* file found in this sequence is loaded. If a specific configuration f
 
 ## Usage
 
+First, create your own configuration class by subclassing `StdConfig` and defining your application-specific fields. See `src/std_config/ai_config.py` for an example (`AIConfig`).
+
+Then, use your custom class to load the configuration:
+
 ```python
-from std_config import StdConfig
+# Assuming you have defined AIConfig inheriting from StdConfig
+from .ai_config import AIConfig # Adjust import based on your project structure
 
-# Parse configuration file and command line arguments 
-config = StdConfig.from_cli()
+# Parse configuration sources (defaults, file, env vars, CLI args)
+config = AIConfig.from_cli()
 
-# Print all configuration fields
-config.print_fields()
+# Access your configuration fields
+print(f"Log Level: {config.log_level}")
+if config.openai_api_key:
+    print("OpenAI API Key is set.")
+else:
+    print("OpenAI API Key is not set.")
+
+# You can also print all fields easily
+# config.print_fields()
 ```
 
 ## Built-in Configuration
