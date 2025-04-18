@@ -51,15 +51,16 @@ class StdConfig(BaseSettings):
         environment_variable="LOG_LEVEL"
     )
 
-    def from_cli(self) -> "StdConfig":
+    @classmethod
+    def from_cli(cls) -> "StdConfig":
         """Construct StdConfig instance by parsing command-line arguments."""
         import argparse
         from typing import get_type_hints
 
         parser = argparse.ArgumentParser(description="Standard configuration utility")
-        type_hints = get_type_hints(self.__class__)
+        type_hints = get_type_hints(cls)
 
-        for field_name, field_info in self.model_fields.items():
+        for field_name, field_info in cls.model_fields.items():
             help_text = field_info.description
             default = field_info.default
             extras = field_info.json_schema_extra or {}
@@ -80,16 +81,16 @@ class StdConfig(BaseSettings):
                 parser.add_argument(*options, **kwargs)
 
         args = parser.parse_args()
-        config = self
+        config = cls()
         args_dict = vars(args)
 
-        for field_name, field_info in self.model_fields.items():
+        for field_name, field_info in cls.model_fields.items():
             if field_name in args_dict:
                 value = args_dict[field_name]
                 if value is not None and value != field_info.default:
                     setattr(config, field_name, value)
 
-        return self
+        return config
 
     def from_environment(self) -> "StdConfig":
         """
