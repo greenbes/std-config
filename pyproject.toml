@@ -15,6 +15,7 @@ dependencies = [
 test = [
     "pytest>=8.3.5",
     "toml>=0.10.2",
+    "pydantic>=2.11.3", # Ensure pydantic is explicitly available for tests
 ]
 
 [tool.pytest.ini_options]

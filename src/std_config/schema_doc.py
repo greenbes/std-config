@@ -54,11 +54,11 @@ class SchemaDocGenerator:
             # General Union
             union_args = ", ".join(cls._get_type_display_name(arg) for arg in args)
             return f"Union[{union_args}]"
-        elif origin in (list, List):
-            if not args: return "List"
-            return f"List[{cls._get_type_display_name(args[0])}]"
-        elif origin in (dict, Dict):
-            if not args or len(args) != 2: return "Dict"
+        elif origin is list: # Use built-in list
+            if not args: return "list"
+            return f"list[{cls._get_type_display_name(args[0])}]"
+        elif origin is dict: # Use built-in dict
+            if not args or len(args) != 2: return "dict"
             key_type = cls._get_type_display_name(args[0])
             value_type = cls._get_type_display_name(args[1])
             return f"Dict[{key_type}, {value_type}]"
