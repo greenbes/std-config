@@ -72,7 +72,7 @@ class StdConfig(BaseSettings):
                 if arg_long:
                     options.append(arg_long)
 
-                kwargs = {"help": help_text, "default": default}
+                kwargs = {"help": help_text, "default": default, "dest": field_name}
                 if field_name in type_hints and hasattr(type_hints[field_name], "__members__"):
                     kwargs["choices"] = [level.value for level in type_hints[field_name].__members__.values()]
 
@@ -83,18 +83,8 @@ class StdConfig(BaseSettings):
         args_dict = vars(args)
 
         for field_name, field_info in cls.model_fields.items():
-            extras = field_info.json_schema_extra or {}
-            arg_long = extras.get("arg_long")
-            arg_short = extras.get("arg_short")
-
-            arg_name = None
-            if arg_long and arg_long.startswith("--"):
-                arg_name = arg_long[2:]
-            elif arg_short and arg_short.startswith("-"):
-                arg_name = arg_short[1:]
-
-            if arg_name and arg_name in args_dict:
-                value = args_dict[arg_name]
+            if field_name in args_dict:
+                value = args_dict[field_name]
                 if value is not None and value != field_info.default:
                     setattr(config, field_name, value)
 
