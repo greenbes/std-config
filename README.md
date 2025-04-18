@@ -34,20 +34,24 @@ Large sections of this module were written by OpenAI and Claude.
 
 ## Configuration Precedence
 
-Values are applied in the following order (lowest to highest priority):
+Configuration values are loaded and merged with the following priority order (lowest to highest):
 
-1. Default values defined in the Pydantic model  
-2. Values from configuration files in XDG directories
-3. Environment variables  
-4. Command-line arguments
+1.  **Default values**: Defined within the Pydantic model class itself.
+2.  **Configuration file**: Values loaded from the first found configuration file (`config.toml`, `config.json`, or `config.yaml`) located in `$XDG_CONFIG_HOME/<app_name>/` or a specific file path provided via the `--config` argument.
+3.  **Environment variables**: Values loaded from environment variables (e.g., `LOG_LEVEL`).
+4.  **Command-line arguments**: Values explicitly passed via CLI arguments (e.g., `--log-level DEBUG`). These have the highest priority.
 
 ## Supported Formats
 
-std-config supports configuration files in multiple formats:
+std-config automatically searches for configuration files within an application-specific subdirectory under `$XDG_CONFIG_HOME`. The subdirectory name (`<app_name>`) is derived from the lowercase name of your `StdConfig` subclass (e.g., `stdconfig` for `StdConfig`, `aiconfig` for `AIConfig`).
 
-- TOML (highest priority)
-- JSON (medium priority)
-- YAML (lowest priority)
+It looks for files in the following order within `$XDG_CONFIG_HOME/<app_name>/`:
+
+1.  `config.toml`
+2.  `config.json`
+3.  `config.yaml`
+
+The *first* file found in this sequence is loaded. If a specific configuration file is provided using the `-c` or `--config` command-line argument, that file is loaded instead, supporting `.toml`, `.json`, `.yaml`, or `.yml` extensions.
 
 ## Usage
 

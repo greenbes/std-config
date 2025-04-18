@@ -139,6 +139,8 @@ class StdConfig(BaseSettings):
             app_name = settings_cls.__name__.lower()
             xdg_config_home = Path(xdg_base_dirs.xdg_config_home())
             config_dir = xdg_config_home / app_name
+            # Ensure the directory exists before trying to read from it
+            config_dir.mkdir(parents=True, exist_ok=True)
 
             # Check for config files in order
             toml_path = config_dir / "config.toml"
