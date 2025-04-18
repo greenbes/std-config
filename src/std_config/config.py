@@ -5,6 +5,7 @@ from pathlib import Path
 import xdg_base_dirs
 from pydantic import Field
 from pydantic_settings import BaseSettings
+import os
 
 
 class LogLevel(str, Enum):
@@ -90,6 +91,26 @@ class StdConfig(BaseSettings):
                     setattr(config, field_name, value)
 
         return config
+
+    def from_environment(self) -> "StdConfig":
+        """
+        Load configuration from environment variables for fields with an environment_variable extra.
+        """
+        import os
+        for field_name, field_info in self.model_fields.items():
+            extras = field_info.json_schema_extra or {}
+            env_var = extras.get("environment_variable")
+            if env_var:
+                value = os.getenv(env_var)
+                if value is not None and value != "":
+                    # Cast to the appropriate type
+                    typ = field_info.annotation
+                    try:
+                        casted = typ(value)
+                    except Exception:
+                        casted = value
+                    setattr(self, field_name, casted)
+        return self
 
     def print_fields(self) -> None:
         """Print all configuration fields to stdout."""
