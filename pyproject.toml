@@ -7,5 +7,6 @@ requires-python = ">=3.12"
 dependencies = [
     "pydantic>=2.11.3",
     "pydantic-settings>=2.8.1",
+    "pytest>=8.3.5",
     "xdg-base-dirs>=6.0.2",
 ]
