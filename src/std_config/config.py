@@ -14,6 +14,18 @@ from pydantic_settings import (
 )
 import argparse
 import logging
+import json
+import toml
+import yaml # For PyYAML's base error type
+
+from .exceptions import (
+    StdConfigError,
+    ConfigDirectoryError,
+    ConfigFileError,
+    ConfigFileNotFoundError,
+    ConfigFileParseError,
+)
+
 
 logger = logging.getLogger(__name__)
 
@@ -124,22 +136,40 @@ class StdConfig(BaseSettings):
 
         config_file = args.config_file if hasattr(args, "config_file") else None
 
+        config_source: Optional[PydanticBaseSettingsSource] = None
         if config_file:
             # Use the specified config file
             config_path = Path(config_file)
-            if config_path.exists():
+            logger.debug(f"Attempting to load specified config file: {config_path}")
+            if not config_path.exists():
+                raise ConfigFileNotFoundError(config_path)
+            try:
                 if config_path.suffix == ".toml":
-                    return TomlConfigSettingsSource(
-                        settings_cls, toml_file=str(config_path)
-                    )
+                    config_source = TomlConfigSettingsSource(settings_cls, toml_file=str(config_path))
+                    # Eagerly load to catch parsing errors here
+                    config_source()
                 elif config_path.suffix == ".json":
-                    return JsonConfigSettingsSource(
-                        settings_cls, json_file=str(config_path)
-                    )
+                    config_source = JsonConfigSettingsSource(settings_cls, json_file=str(config_path))
+                    config_source()
                 elif config_path.suffix in [".yaml", ".yml"]:
-                    return YamlConfigSettingsSource(
-                        settings_cls, yaml_file=str(config_path)
-                    )
+                    config_source = YamlConfigSettingsSource(settings_cls, yaml_file=str(config_path))
+                    config_source()
+                else:
+                    logger.warning(f"Unsupported config file extension: {config_path.suffix}")
+            except (FileNotFoundError, IsADirectoryError) as e: # Should be caught by exists(), but belt-and-suspenders
+                 raise ConfigFileNotFoundError(config_path) from e
+            except (json.JSONDecodeError, toml.TomlDecodeError, yaml.YAMLError) as e:
+                raise ConfigFileParseError(config_path, e) from e
+            except Exception as e: # Catch other potential issues during source initialization
+                raise ConfigFileError(config_path, f"Unexpected error loading config: {e}") from e
+
+            if config_source:
+                logger.debug(f"Successfully prepared config source from {config_path}")
+                return config_source
+            else:
+                 # This case should ideally not be reached if suffix is checked
+                 logger.warning(f"Could not create a config source for {config_path}")
+
         else:
             # Look for config files in XDG_CONFIG_HOME
             app_name = settings_cls.__name__.lower()
@@ -150,26 +180,36 @@ class StdConfig(BaseSettings):
             try:
                 config_dir.mkdir(parents=True, exist_ok=True)
             except OSError as e:
-                logger.warning(f"Could not create config directory {config_dir}: {e}")
-                # Continue without XDG config if directory creation fails
+                # Raise a specific error if directory creation fails
+                raise ConfigDirectoryError(config_dir, e) from e
 
-            # Check for config files in order
-            toml_path = config_dir / "config.toml"
-            if toml_path.exists():
-                logger.debug(f"Loading config from TOML file: {toml_path}")
-                return TomlConfigSettingsSource(settings_cls, toml_file=str(toml_path))
+            # Check for config files in order, attempting to parse eagerly
+            config_files_to_check = [
+                ("TOML", config_dir / "config.toml", TomlConfigSettingsSource, toml.TomlDecodeError),
+                ("JSON", config_dir / "config.json", JsonConfigSettingsSource, json.JSONDecodeError),
+                ("YAML", config_dir / "config.yaml", YamlConfigSettingsSource, yaml.YAMLError),
+            ]
 
-            json_path = config_dir / "config.json"
-            if json_path.exists():
-                logger.debug(f"Loading config from JSON file: {json_path}")
-                return JsonConfigSettingsSource(settings_cls, json_file=str(json_path))
+            for file_type, file_path, source_class, parse_exception in config_files_to_check:
+                if file_path.exists():
+                    logger.debug(f"Found potential {file_type} config file: {file_path}")
+                    try:
+                        # Dynamically create kwargs for the source class constructor
+                        source_kwargs = {f"{file_type.lower()}_file": str(file_path)}
+                        config_source = source_class(settings_cls, **source_kwargs)
+                        # Eagerly load to catch parsing errors here
+                        config_source()
+                        logger.debug(f"Successfully loaded config from {file_type} file: {file_path}")
+                        return config_source
+                    except parse_exception as e:
+                        raise ConfigFileParseError(file_path, e) from e
+                    except Exception as e: # Catch other potential issues
+                        logger.error(f"Unexpected error loading {file_type} file {file_path}: {e}")
+                        # Decide whether to raise or continue checking other formats
+                        # For now, let's raise to be explicit about the error
+                        raise ConfigFileError(file_path, f"Unexpected error loading config: {e}") from e
 
-            yaml_path = config_dir / "config.yaml"
-            if yaml_path.exists():
-                logger.debug(f"Loading config from YAML file: {yaml_path}")
-                return YamlConfigSettingsSource(settings_cls, yaml_file=str(yaml_path))
-
-            logger.debug("No config file found in XDG directory.")
+            logger.debug("No valid config file found in XDG directory.")
 
         # Return empty settings source if no config file is found
         logger.debug("No config file specified or found.")

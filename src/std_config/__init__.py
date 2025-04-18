@@ -1,4 +1,19 @@
-from .config import StdConfig  # noqa
-from .schema_doc import SchemaDocGenerator  # noqa
+from .config import StdConfig
+from .schema_doc import SchemaDocGenerator
+from .exceptions import (
+    StdConfigError,
+    ConfigDirectoryError,
+    ConfigFileError,
+    ConfigFileNotFoundError,
+    ConfigFileParseError,
+)
 
-__all__ = ["StdConfig", "SchemaDocGenerator"]
+__all__ = [
+    "StdConfig",
+    "SchemaDocGenerator",
+    "StdConfigError",
+    "ConfigDirectoryError",
+    "ConfigFileError",
+    "ConfigFileNotFoundError",
+    "ConfigFileParseError",
+]
