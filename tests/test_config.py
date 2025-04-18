@@ -38,7 +38,7 @@ def test_stdconfig_from_cli(monkeypatch):
     assert config.log_level == LogLevel.ERROR
 
 
-def test_stdconfig_from_cli_config_file(monkeypatch, tmp_path):
+def test_stdconfig_loads_config_file_specified_by_cli(monkeypatch, tmp_path):
     # Create a temporary config file
     config_file = tmp_path / "config.toml"
     config_content = {"log_level": "DEBUG"}
