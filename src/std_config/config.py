@@ -4,7 +4,7 @@ from pathlib import Path
 
 import xdg_base_dirs
 from pydantic import Field
-from pydantic_settings import BaseSettings
+from pydantic_settings import BaseSettings, SettingsConfigDict
 import os
 
 
@@ -33,6 +33,7 @@ class StdConfig(BaseSettings):
             Can be set via LOG_LEVEL environment variable.
             Can be set using "-l" or "--long" command line arguments
     """
+    model_config = SettingsConfigDict(env_prefix="")
     xdg_data_home: Path = Field(
         default_factory=lambda: Path(xdg_base_dirs.xdg_data_home())
     )
@@ -45,10 +46,9 @@ class StdConfig(BaseSettings):
     log_level: LogLevel = Field(
         default=LogLevel.INFO,
         description="Logging level (DEBUG, INFO, WARNING, ERROR, CRITICAL)",
-        validation_alias="LOG_LEVEL",
+        env="LOG_LEVEL",
         arg_short="-l",
         arg_long="--log-level",
-        environment_variable="LOG_LEVEL"
     )
 
     @classmethod
