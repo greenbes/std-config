@@ -4,8 +4,8 @@ import types
 import importlib
 import pytest
 
-from src.std_config.config import StdConfig, LogLevel
-from src.std_config.ai_config import AIConfig
+from std_config.config import StdConfig, LogLevel
+from std_config.ai_config import AIConfig
 
 def test_stdconfig_defaults(monkeypatch):
     config = StdConfig()
@@ -32,6 +32,7 @@ def test_stdconfig_from_cli(monkeypatch):
     assert config.log_level == LogLevel.ERROR
 
 def test_aiconfig_inherits_stdconfig(monkeypatch):
+    monkeypatch.delenv("OPENAI_API_KEY", raising=False)
     # Should inherit all StdConfig fields
     config = AIConfig()
     assert hasattr(config, "xdg_data_home")
