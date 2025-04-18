@@ -1,54 +1,104 @@
 # std-config
 
-> This module accepts a Pydantic CLASS definition that represents desired application configuration values and returns a filled object INSTANCE based on command line options, environment variables, and a configuration file. Pydantic provides data validation.
+[![PyPI Version](https://img.shields.io/pypi/v/std-config.svg)](https://pypi.org/project/std-config)
+[![Build Status](https://github.com/<username>/std-config/actions/workflows/ci.yml/badge.svg)](https://github.com/<username>/std-config/actions)
+[![Coverage Status](https://coveralls.io/repos/github/<username>/std-config/badge.svg?branch=main)](https://coveralls.io/github/<username>/std-config?branch=main)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-This is just a thin shim on top of [xdg-base-dirs](https://github.com/srstevenson/xdg-base-dirs) and [pydantic](https://docs.pydantic.dev/latest/).
+std-config is a Pydantic-powered configuration loader that merges defaults, XDG base directories, environment variables, and command-line arguments in a sensible order.
 
-## Order of Precedence
+## Table of Contents
+- [Installation](#installation)
+- [Quickstart](#quickstart)
+- [Configuration Precedence](#configuration-precedence)
+- [Supported Formats](#supported-formats)
+- [API Reference](#api-reference)
+- [CLI Reference](#cli-reference)
+- [Contributing](#contributing)
+- [License](#license)
 
-Follow this logic when filling the object INSTANCE:
+## Installation
 
-```
-    IDENTIFY xdg values from environment
-    CREATE an INSTANCE of the provided CLASS
-    ITERATE OVER fields in provided class and identify command line arguments
-    ADD command line arguments to argparse
-    CHECK command line arguments for a configuration file but do not apply other values
-    IF configuration file is available THEN
-        read configuration file
-        set INSTANCE values using values from configuration file
-    IF a command line argument is provided THEN
-        set value to command line argument
-    ELSE IF environment variable is provided THEN
-        set value to environment variable
-```
+Install from PyPI:
 
-## Detailed Steps to Implement the Order of Precedence
-
-1. Identify the XDG base directories to use as default prefixes
-2. Create an INSTANCE of the provided CLASS
-    - Default values handled by Pydantic definitions
-3. Iterate over the attributes in the provided class and identify command line arguments
-    - Each `Field` definition can have an optional `arg_short` parameter or an optional `arg_long` parameter 
-4. Add command line arguments to `argparse` definition 
-5. Use `argparse` to parse command line arguments
-6. If a configuration file was specified on the command line, load it. If not, look for a configuration file in the locations specified by the INSTANCE.
-    - Override defaults
-7. Identify ENVIRONMENT VARIABLES and set INSTANCE attributes 
-8. Parse COMMAND LINE ARGUMENTS and set the related INSTANCE attributes
-
-## Notes
-
-- Values not specified in the CLASS attributes are ignored
-
-## Command Line Utility
-
-This package also provides a command line utility that loads a configuration and prints it to
-stdout as a JSON structure.
-
-To run the command line utility
 ```bash
-stdconfig --config CONFIG_FILE.cfg
+pip install std-config
 ```
+
+Or from source:
+
+```bash
+git clone https://github.com/<username>/std-config.git
+cd std-config
+pip install .
+```
+
+## Quickstart
+
+### Programmatic Usage
+
+```python
+from pydantic import BaseModel, Field
+from std_config import load_config
+
+class MyConfig(BaseModel):
+    foo: str = Field("default_value", env="FOO", arg_long="--foo")
+    bar: int = Field(42, env="BAR", arg_short="-b")
+
+cfg = load_config(MyConfig)
+print(cfg.foo, cfg.bar)
+```
+
+### Command-Line Utility
+
+```bash
+stdconfig --config /path/to/config.toml --foo override
+```
+**Note:** The `stdconfig` utility loads your configuration sources and prints the merged result as a JSON structure to stdout.
+
+If you omit the `--config` option, stdconfig will search for a configuration file in `$XDG_CONFIG_HOME/<app_name>/config.(json|toml|yaml)`, falling back to `$HOME/.config/<app_name>/config.(json|toml|yaml)`.
+
+## Configuration Precedence
+
+Values are applied in the following order (lowest to highest priority):
+
+1. Default values defined in the Pydantic model  
+2. XDG base directories (from `$XDG_CONFIG_HOME`, `$HOME/.config`, etc.)  
+3. Configuration file values (applied by `pydantic-settings`)  
+4. Environment variables  
+5. Command-line arguments
+
+## Supported Formats
+
+std-config uses Pydantic Settings under the hood and supports any format supported by Pydantic Settings (e.g., JSON, TOML, YAML).
+
+Configuration files are searched in these locations by default:
+- `$XDG_CONFIG_HOME/<app_name>/config.(json|toml|yaml)`
+- `$HOME/.config/<app_name>/config.(json|toml|yaml)`
+
+## API Reference
+
+- `load_config(config_model: Type[BaseModel], **kwargs) -> BaseModel`  
+  Load configuration into an instance of your Pydantic model.
+
+- Field arguments:  
+  - `env`: Environment variable name  
+  - `arg_long`: Long CLI argument (e.g., `--foo`)  
+  - `arg_short`: Short CLI argument (e.g., `-f`)
+
+See the code or docs for more advanced usage.
+
+## CLI Reference
+
+- `stdconfig --config <path>`: specify config file  
+- `stdconfig --help`: list all options
+
+## Contributing
+
+Contributions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for details on how to get started, code style, and submitting pull requests.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 
