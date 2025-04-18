@@ -89,3 +89,10 @@ class StdConfig(BaseSettings):
                     setattr(config, field_name, value)
 
         return config
+
+    def print_fields(self) -> None:
+        """Print all configuration fields to stdout."""
+        for field_name, field_info in self.model_fields.items():
+            value = getattr(self, field_name)
+            label = field_info.description or field_name.replace("_", " ").capitalize()
+            print(f"{label}: {value}")
