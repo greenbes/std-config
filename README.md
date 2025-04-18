@@ -13,7 +13,6 @@ std-config is a Pydantic-powered configuration loader that merges defaults, XDG 
 - [Configuration Precedence](#configuration-precedence)
 - [Supported Formats](#supported-formats)
 - [API Reference](#api-reference)
-- [CLI Reference](#cli-reference)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -78,11 +77,6 @@ Configuration files are searched in these locations by default:
   - `arg_short`: Short CLI argument (e.g., `-f`)
 
 See the code or docs for more advanced usage.
-
-## CLI Reference
-
-- `stdconfig --config <path>`: specify config file  
-- `stdconfig --help`: list all options
 
 ## Contributing
 
