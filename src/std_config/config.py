@@ -46,7 +46,8 @@ class StdConfig(BaseSettings):
         description="Logging level (DEBUG, INFO, WARNING, ERROR, CRITICAL)",
         validation_alias="LOG_LEVEL",
         arg_short="-l",
-        arg_long="--log-level"
+        arg_long="--log-level",
+        environment_variable="LOG_LEVEL"
     )
 
     @classmethod
