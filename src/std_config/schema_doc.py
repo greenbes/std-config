@@ -50,24 +50,24 @@ class SchemaDocGenerator:
             # Handle Optional[X] which is Union[X, NoneType]
             if len(args) == 2 and type(None) in args:
                 non_none_arg = args[0] if args[1] is type(None) else args[1]
-                return f"Optional[{cls._get_type_display_name(non_none_arg)}]"
+                return f"Optional[{SchemaDocGenerator._get_type_display_name(non_none_arg)}]"
             # General Union
-            union_args = ", ".join(cls._get_type_display_name(arg) for arg in args)
+            union_args = ", ".join(SchemaDocGenerator._get_type_display_name(arg) for arg in args)
             return f"Union[{union_args}]"
         elif origin is list: # Use built-in list
             if not args: return "list"
-            return f"list[{cls._get_type_display_name(args[0])}]"
+            return f"list[{SchemaDocGenerator._get_type_display_name(args[0])}]"
         elif origin is dict: # Use built-in dict
             if not args or len(args) != 2: return "dict"
-            key_type = cls._get_type_display_name(args[0])
-            value_type = cls._get_type_display_name(args[1])
+            key_type = SchemaDocGenerator._get_type_display_name(args[0])
+            value_type = SchemaDocGenerator._get_type_display_name(args[1])
             return f"Dict[{key_type}, {value_type}]"
         elif hasattr(type_hint, "__name__"):
             return type_hint.__name__
         elif origin is not None:
             # Handle other generics like Tuple, Set etc.
             origin_name = getattr(origin, "__name__", str(origin))
-            arg_names = ", ".join(cls._get_type_display_name(arg) for arg in args)
+            arg_names = ", ".join(SchemaDocGenerator._get_type_display_name(arg) for arg in args)
             return f"{origin_name}[{arg_names}]"
         else:
             # Fallback for simple types or unknown complex types
