@@ -39,8 +39,9 @@ def test_stdconfig_from_cli(monkeypatch):
 
 
 def test_stdconfig_loads_config_file_specified_by_cli(monkeypatch, tmp_path):
+    # Test loading a config file specified via the --config CLI argument
     # Create a temporary config file
-    config_file = tmp_path / "config.toml"
+    config_file = tmp_path / "my_specific_config.toml"
     config_content = {"log_level": "DEBUG"}
     with open(config_file, "w") as f:
         toml.dump(config_content, f)
