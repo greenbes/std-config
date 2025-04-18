@@ -49,15 +49,6 @@ cfg = load_config(MyConfig)
 print(cfg.foo, cfg.bar)
 ```
 
-### Command-Line Utility
-
-```bash
-stdconfig --config /path/to/config.toml --foo override
-```
-**Note:** The `stdconfig` utility loads your configuration sources and prints the merged result as a JSON structure to stdout.
-
-If you omit the `--config` option, stdconfig will search for a configuration file in `$XDG_CONFIG_HOME/<app_name>/config.(json|toml|yaml)`, falling back to `$HOME/.config/<app_name>/config.(json|toml|yaml)`.
-
 ## Configuration Precedence
 
 Values are applied in the following order (lowest to highest priority):
