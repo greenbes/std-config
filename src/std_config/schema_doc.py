@@ -43,27 +43,35 @@ class SchemaDocGenerator:
         if type_hint is None:
             return "None"
         
-        if hasattr(type_hint, "__name__"):
-            return type_hint.__name__
-        
         origin = get_origin(type_hint)
-        if origin is not None:
-            args = get_args(type_hint)
-            if origin is Union:
-                # Handle Optional[X] which is Union[X, None]
-                if len(args) == 2 and args[1] is type(None):
-                    return f"Optional[{SchemaDocGenerator._get_type_display_name(args[0])}]"
-                return f"Union[{', '.join(SchemaDocGenerator._get_type_display_name(arg) for arg in args)}]"
-            if origin is list:
-                return f"List[{SchemaDocGenerator._get_type_display_name(args[0])}]"
-            if origin is dict:
-                key_type = SchemaDocGenerator._get_type_display_name(args[0])
-                value_type = SchemaDocGenerator._get_type_display_name(args[1])
-                return f"Dict[{key_type}, {value_type}]"
-            
-            return str(type_hint)
-        
-        return str(type_hint)
+        args = get_args(type_hint)
+
+        if origin is Union:
+            # Handle Optional[X] which is Union[X, NoneType]
+            if len(args) == 2 and type(None) in args:
+                non_none_arg = args[0] if args[1] is type(None) else args[1]
+                return f"Optional[{cls._get_type_display_name(non_none_arg)}]"
+            # General Union
+            union_args = ", ".join(cls._get_type_display_name(arg) for arg in args)
+            return f"Union[{union_args}]"
+        elif origin in (list, List):
+            if not args: return "List"
+            return f"List[{cls._get_type_display_name(args[0])}]"
+        elif origin in (dict, Dict):
+            if not args or len(args) != 2: return "Dict"
+            key_type = cls._get_type_display_name(args[0])
+            value_type = cls._get_type_display_name(args[1])
+            return f"Dict[{key_type}, {value_type}]"
+        elif hasattr(type_hint, "__name__"):
+            return type_hint.__name__
+        elif origin is not None:
+            # Handle other generics like Tuple, Set etc.
+            origin_name = getattr(origin, "__name__", str(origin))
+            arg_names = ", ".join(cls._get_type_display_name(arg) for arg in args)
+            return f"{origin_name}[{arg_names}]"
+        else:
+            # Fallback for simple types or unknown complex types
+            return str(type_hint).replace("typing.", "")
     
     @staticmethod
     def _get_field_info(
@@ -144,18 +152,19 @@ class SchemaDocGenerator:
         for field in fields:
             default_value = str(field.default) if field.default is not None else "None"
             required = "Yes" if field.required else "No"
-            env_var = field.env_var or "-"
-            cli_args = ", ".join(field.cli_args) if field.cli_args else "-"
+            env_var = f"`{field.env_var}`" if field.env_var else "-"
+            cli_args = ", ".join(f"`{arg}`" for arg in field.cli_args) if field.cli_args else "-"
             
-            lines.append(
-                f"| `{field.name}` | {field.type_name} | {field.description} | `{default_value}` | {required} | `{env_var}` | `{cli_args}` |"
-            )
-            
-            # Add enum choices if applicable
+            description = field.description
+            # Add enum choices to description if applicable
             if field.choices:
                 choices_str = ", ".join(f"`{choice}`" for choice in field.choices)
-                lines.append(f"| | | Choices: {choices_str} | | | | |")
-        
+                description += f"<br/>Choices: {choices_str}"
+
+            lines.append(
+                f"| `{field.name}` | {field.type_name} | {description} | `{default_value}` | {required} | {env_var} | {cli_args} |"
+            )
+
         return "\n".join(lines)
     
     @classmethod

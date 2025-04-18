@@ -13,6 +13,9 @@ from pydantic_settings import (
     YamlConfigSettingsSource,
 )
 import argparse
+import logging
+
+logger = logging.getLogger(__name__)
 
 
 class LogLevel(str, Enum):
@@ -139,23 +142,34 @@ class StdConfig(BaseSettings):
             app_name = settings_cls.__name__.lower()
             xdg_config_home = Path(xdg_base_dirs.xdg_config_home())
             config_dir = xdg_config_home / app_name
+            logger.debug(f"Looking for config files in {config_dir}")
             # Ensure the directory exists before trying to read from it
-            config_dir.mkdir(parents=True, exist_ok=True)
+            try:
+                config_dir.mkdir(parents=True, exist_ok=True)
+            except OSError as e:
+                logger.warning(f"Could not create config directory {config_dir}: {e}")
+                # Continue without XDG config if directory creation fails
 
             # Check for config files in order
             toml_path = config_dir / "config.toml"
             if toml_path.exists():
+                logger.debug(f"Loading config from TOML file: {toml_path}")
                 return TomlConfigSettingsSource(settings_cls, toml_file=str(toml_path))
 
             json_path = config_dir / "config.json"
             if json_path.exists():
+                logger.debug(f"Loading config from JSON file: {json_path}")
                 return JsonConfigSettingsSource(settings_cls, json_file=str(json_path))
 
             yaml_path = config_dir / "config.yaml"
             if yaml_path.exists():
+                logger.debug(f"Loading config from YAML file: {yaml_path}")
                 return YamlConfigSettingsSource(settings_cls, yaml_file=str(yaml_path))
 
+            logger.debug("No config file found in XDG directory.")
+
         # Return empty settings source if no config file is found
+        logger.debug("No config file specified or found.")
         return EmptySettingsSource(settings_cls)
 
     @classmethod
