@@ -11,14 +11,9 @@ This file lists the steps to be performed in order to complete the project. Only
 - [X] Add a field to `StdConfig` called `xdg_data_home`. It should default to the XDG value for `$XDG_DATA_HOME`.
 - [X] Add a field to `StdConfig` called `xdg_config_home`. It should default to the XDG value for `$XDG_CONFIG_HOME`.
 - [X] Add a field to `StdConfig` called `xdg_state_home`. It should default to the XDG value for `$XDG_STATE_HOME`.
-
-## Additional StdConfig Features
-
 - [X] Add a field to `StdConfig` called `log_level`. It should:
   - Use Python's `Enum` to only accept standard logging levels (DEBUG, INFO, WARNING, ERROR, CRITICAL)
   - Default to INFO level
   - Be accessible via environment variable `LOG_LEVEL`
   - Be configurable from the command line using `-l` or `--log-level`
-
-
-
+- [X] Add a `from_environment` instance method to `StdConfig` that examines itself and identifies Fields that have an `environment_variable` attribute. If a Field has an `environment_variable` attribute, attempt to load that environment variable from the environment. If the result is not None or an empty string, the instance should set the value in itself to the value of the environment variable.
