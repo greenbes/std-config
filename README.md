@@ -9,83 +9,133 @@
 
 This is just a convenience library to handle a common pattern and introduces no new functionality.
 
-## Table of Contents
-- [Installation](#installation)
-- [Quickstart](#quickstart)
-- [Configuration Precedence](#configuration-precedence)
-- [Supported Formats](#supported-formats)
-- [API Reference](#api-reference)
-- [Contributing](#contributing)
-- [License](#license)
+Large sections of this module were written by OpenAI and Claude.
 
-## Installation
+## Key Features
 
-Install from PyPI:
-
-```bash
-pip install std-config
-```
-
-Or from source:
-
-```bash
-git clone https://github.com/<username>/std-config.git
-cd std-config
-pip install .
-```
-
-## Quickstart
-
-### Programmatic Usage
-
-```python
-from pydantic import BaseModel, Field
-from std_config import load_config
-
-class MyConfig(BaseModel):
-    foo: str = Field("default_value", env="FOO", arg_long="--foo")
-    bar: int = Field(42, env="BAR", arg_short="-b")
-
-cfg = load_config(MyConfig)
-print(cfg.foo, cfg.bar)
-```
+- **Standardized Configuration Framework**: Uses Pydantic and Pydantic-Settings for robust validation and parsing
+- **XDG Base Directory Support**: Automatically follows XDG specifications for config file locations 
+- **Multiple Configuration Sources**: Elegantly merges values from defaults, files, environment variables, and CLI
+- **Multiple File Format Support**: Load configuration from JSON, TOML, or YAML files
+- **Extensible Base Class**: Easily extend `StdConfig` for custom configuration needs (see `AIConfig` example)
+- **Type Safety**: Leverages Pydantic's type validation for safe configuration handling
 
 ## Configuration Precedence
 
 Values are applied in the following order (lowest to highest priority):
 
 1. Default values defined in the Pydantic model  
-2. XDG base directories (from `$XDG_CONFIG_HOME`, `$HOME/.config`, etc.)  
-3. Configuration file values (applied by `pydantic-settings`)  
-4. Environment variables  
-5. Command-line arguments
+2. Values from configuration files in XDG directories
+3. Environment variables  
+4. Command-line arguments
 
 ## Supported Formats
 
-std-config uses Pydantic Settings under the hood and supports any format supported by Pydantic Settings (e.g., JSON, TOML, YAML).
+std-config supports configuration files in multiple formats:
+- TOML (highest priority)
+- JSON (medium priority)
+- YAML (lowest priority)
 
 Configuration files are searched in these locations by default:
-- `$XDG_CONFIG_HOME/<app_name>/config.(json|toml|yaml)`
-- `$HOME/.config/<app_name>/config.(json|toml|yaml)`
+- `$XDG_CONFIG_HOME/<app_name>/config.toml`
+- `$XDG_CONFIG_HOME/<app_name>/config.json`
+- `$XDG_CONFIG_HOME/<app_name>/config.yaml`
 
-## API Reference
+Where `<app_name>` is the lowercase name of your configuration class (e.g., `stdconfig` for `StdConfig`).
 
-- `load_config(config_model: Type[BaseModel], **kwargs) -> BaseModel`  
-  Load configuration into an instance of your Pydantic model.
+## Usage
 
-- Field arguments:  
-  - `env`: Environment variable name  
-  - `arg_long`: Long CLI argument (e.g., `--foo`)  
-  - `arg_short`: Short CLI argument (e.g., `-f`)
+### Basic Usage
 
-See the code or docs for more advanced usage.
+```python
+from std_config import StdConfig
 
-## Contributing
+# Load configuration from all sources
+config = StdConfig()
 
-Contributions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for details on how to get started, code style, and submitting pull requests.
+# Access configuration values
+print(f"Log level: {config.log_level}")
+print(f"Config directory: {config.xdg_config_home}")
+
+# Print all configuration fields
+config.print_fields()
+```
+
+### Command-Line Integration
+
+```python
+from std_config import StdConfig
+
+# Parse CLI arguments automatically
+config = StdConfig.from_cli()
+```
+
+### Custom Configuration
+
+```python
+from std_config import StdConfig
+from pydantic import Field
+from typing import Optional
+
+class MyAppConfig(StdConfig):
+    """Custom application configuration."""
+    
+    app_name: str = Field(
+        default="my-app",
+        description="Application name",
+        json_schema_extra={
+            "env": "APP_NAME",
+            "arg_short": "-n", 
+            "arg_long": "--name"
+        }
+    )
+    
+    api_key: Optional[str] = Field(
+        default=None,
+        description="API key for external service",
+        json_schema_extra={
+            "env": "API_KEY",
+            "arg_long": "--api-key"
+        }
+    )
+```
+
+## Built-in Configuration
+
+The `StdConfig` base class provides:
+
+- `xdg_data_home`: Path to XDG data directory
+- `xdg_config_home`: Path to XDG config directory
+- `xdg_state_home`: Path to XDG state directory
+- `log_level`: Configurable logging level (`DEBUG`, `INFO`, `WARNING`, `ERROR`, `CRITICAL`)
+- `config_file`: Optional path to a specific configuration file
+
+## Schema Documentation
+
+std-config includes a `SchemaDocGenerator` class that can automatically generate documentation for your configuration schemas in Markdown or JSON formats.
+
+```python
+from std_config import StdConfig, SchemaDocGenerator
+from pathlib import Path
+
+# Generate Markdown documentation
+markdown_doc = SchemaDocGenerator.to_markdown(StdConfig)
+print(markdown_doc)
+
+# Save to a file
+SchemaDocGenerator.save_markdown(StdConfig, Path("./docs/std_config_schema.md"))
+
+# Generate JSON schema
+json_schema = SchemaDocGenerator.to_json(StdConfig)
+print(json_schema)
+
+# Save JSON schema to a file
+SchemaDocGenerator.save_json(StdConfig, Path("./docs/std_config_schema.json"))
+```
+
+This makes it easy to keep documentation in sync with your configuration classes and generate up-to-date reference material for users.
 
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
 

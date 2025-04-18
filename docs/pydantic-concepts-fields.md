@@ -2,13 +2,12 @@
 
 <a href="#the-annotated-pattern" class="md-skip">Skip to content</a>
 
-</div>
+
 
 <div md-component="announce">
 
 <div class="md-banner__inner md-grid md-typeset">
 
-![](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdib3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTE5IDYuNDEgMTcuNTkgNSAxMiAxMC41OSA2LjQxIDUgNSA2LjQxIDEwLjU5IDEyIDUgMTcuNTkgNi40MSAxOSAxMiAxMy40MSAxNy41OSAxOSAxOSAxNy41OSAxMy40MSAxMnoiIC8+PC9zdmc+)
 
 What's new — we've launched [Pydantic
 Logfire](https://pydantic.dev/articles/logfire-announcement) <img
@@ -18,20 +17,19 @@ understand your
 <a href="https://logfire.pydantic.dev/docs/integrations/pydantic/"
 id="logfire-app-type" target="_blank">Pydantic validations.</a>
 
-</div>
 
-</div>
+
+
 
 <div md-color-scheme="default" md-component="outdated" hidden="">
 
-</div>
+
 
 <div class="md-header" md-component="header">
 
 <a href="../.." class="md-header__button md-logo" aria-label="Pydantic"
 data-md-component="logo" title="Pydantic"><img
 src="../../logo-white.svg" alt="logo" /></a>
-![](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdib3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTMgNmgxOHYySDN6bTAgNWgxOHYySDN6bTAgNWgxOHYySDN6IiAvPjwvc3ZnPg==)
 
 <div class="md-header__title" md-component="header-title">
 
@@ -41,36 +39,28 @@ src="../../logo-white.svg" alt="logo" /></a>
 
 <span class="md-ellipsis"> Pydantic </span>
 
-</div>
+
 
 <div class="md-header__topic" md-component="header-topic">
 
 <span class="md-ellipsis"> Fields </span>
 
-</div>
 
-</div>
 
-</div>
 
-![](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdib3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTEyIDJhNyA3IDAgMCAwLTcgN2MwIDIuMzggMS4xOSA0LjQ3IDMgNS43NFYxN2ExIDEgMCAwIDAgMSAxaDZhMSAxIDAgMCAwIDEtMXYtMi4yNmMxLjgxLTEuMjcgMy0zLjM2IDMtNS43NGE3IDcgMCAwIDAtNy03TTkgMjFhMSAxIDAgMCAwIDEgMWg0YTEgMSAwIDAgMCAxLTF2LTFIOXoiIC8+PC9zdmc+)
-![](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdib3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTEyIDJhNyA3IDAgMCAxIDcgN2MwIDIuMzgtMS4xOSA0LjQ3LTMgNS43NFYxN2ExIDEgMCAwIDEtMSAxSDlhMSAxIDAgMCAxLTEtMXYtMi4yNkM2LjE5IDEzLjQ3IDUgMTEuMzggNSA5YTcgNyAwIDAgMSA3LTdNOSAyMXYtMWg2djFhMSAxIDAgMCAxLTEgMWgtNGExIDEgMCAwIDEtMS0xbTMtMTdhNSA1IDAgMCAwLTUgNWMwIDIuMDUgMS4yMyAzLjgxIDMgNC41OFYxNmg0di0yLjQyYzEuNzctLjc3IDMtMi41MyAzLTQuNThhNSA1IDAgMCAwLTUtNSIgLz48L3N2Zz4=)
-![](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdib3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTkgMmMzLjg3IDAgNyAzLjEzIDcgNyAwIDIuMzgtMS4xOSA0LjQ3LTMgNS43NFYxN2MwIC41NS0uNDUgMS0xIDFINmMtLjU1IDAtMS0uNDUtMS0xdi0yLjI2QzMuMTkgMTMuNDcgMiAxMS4zOCAyIDljMC0zLjg3IDMuMTMtNyA3LTdNNiAyMXYtMWg2djFjMCAuNTUtLjQ1IDEtMSAxSDdjLS41NSAwLTEtLjQ1LTEtMU05IDRDNi4yNCA0IDQgNi4yNCA0IDljMCAyLjA1IDEuMjMgMy44MSAzIDQuNThWMTZoNHYtMi40MmMxLjc3LS43NyAzLTIuNTMgMy00LjU4IDAtMi43Ni0yLjI0LTUtNS01bTEwIDloLTJsLTMuMiA5aDEuOWwuNy0yaDMuMmwuNyAyaDEuOXptLTIuMTUgNS42NUwxOCAxNWwxLjE1IDMuNjV6IiAvPjwvc3ZnPg==)
 
-![](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdib3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTkuNSAzQTYuNSA2LjUgMCAwIDEgMTYgOS41YzAgMS42MS0uNTkgMy4wOS0xLjU2IDQuMjNsLjI3LjI3aC43OWw1IDUtMS41IDEuNS01LTV2LS43OWwtLjI3LS4yN0E2LjUyIDYuNTIgMCAwIDEgOS41IDE2IDYuNSA2LjUgMCAwIDEgMyA5LjUgNi41IDYuNSAwIDAgMSA5LjUgM20wIDJDNyA1IDUgNyA1IDkuNVM3IDE0IDkuNSAxNCAxNCAxMiAxNCA5LjUgMTIgNSA5LjUgNSIgLz48L3N2Zz4=)
+
+
 
 <div class="md-search" role="dialog">
 
 <div class="md-search__inner" role="search">
 
-![](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdib3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTkuNSAzQTYuNSA2LjUgMCAwIDEgMTYgOS41YzAgMS42MS0uNTkgMy4wOS0xLjU2IDQuMjNsLjI3LjI3aC43OWw1IDUtMS41IDEuNS01LTV2LS43OWwtLjI3LS4yN0E2LjUxNiA2LjUxNiAwIDAgMSA5LjUgMTYgNi41IDYuNSAwIDAgMSAzIDkuNSA2LjUgNi41IDAgMCAxIDkuNSAzbTAgMkM3IDUgNSA3IDUgOS41UzcgMTQgOS41IDE0IDE0IDEyIDE0IDkuNSAxMiA1IDkuNSA1WiIgLz48L3N2Zz4=)
-![](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdib3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTIwIDExdjJIOGw1LjUgNS41LTEuNDIgMS40Mkw0LjE2IDEybDcuOTItNy45MkwxMy41IDUuNSA4IDExaDEyWiIgLz48L3N2Zz4=)
 
-![](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdib3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTE5IDYuNDEgMTcuNTkgNSAxMiAxMC41OSA2LjQxIDUgNSA2LjQxIDEwLjU5IDEyIDUgMTcuNTkgNi40MSAxOSAxMiAxMy40MSAxNy41OSAxOSAxOSAxNy41OSAxMy40MSAxMiAxOSA2LjQxWiIgLz48L3N2Zz4=)
 
 <div class="md-search__suggest">
 
-</div>
+
 
 <div class="md-search__output">
 
@@ -82,17 +72,17 @@ src="../../logo-white.svg" alt="logo" /></a>
 
 Type to start searching
 
-</div>
 
-</div>
 
-</div>
 
-</div>
 
-</div>
 
-</div>
+
+
+
+
+
+
 
 <div class="md-header__source">
 
@@ -101,19 +91,18 @@ data-md-component="source" title="Go to repository"></a>
 
 <div class="md-source__icon md-icon">
 
-![](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdib3g9IjAgMCA0NDggNTEyIj48IS0tISBGb250IEF3ZXNvbWUgRnJlZSA2LjcuMiBieSBAZm9udGF3ZXNvbWUgLSBodHRwczovL2ZvbnRhd2Vzb21lLmNvbSBMaWNlbnNlIC0gaHR0cHM6Ly9mb250YXdlc29tZS5jb20vbGljZW5zZS9mcmVlIChJY29uczogQ0MgQlkgNC4wLCBGb250czogU0lMIE9GTCAxLjEsIENvZGU6IE1JVCBMaWNlbnNlKSBDb3B5cmlnaHQgMjAyNCBGb250aWNvbnMsIEluYy4tLT48cGF0aCBkPSJNNDM5LjU1IDIzNi4wNSAyNDQgNDAuNDVhMjguODcgMjguODcgMCAwIDAtNDAuODEgMGwtNDAuNjYgNDAuNjMgNTEuNTIgNTEuNTJjMjcuMDYtOS4xNCA1Mi42OCAxNi43NyA0My4zOSA0My42OGw0OS42NiA0OS42NmMzNC4yMy0xMS44IDYxLjE4IDMxIDM1LjQ3IDU2LjY5LTI2LjQ5IDI2LjQ5LTcwLjIxLTIuODctNTYtMzcuMzRMMjQwLjIyIDE5OXYxMjEuODVjMjUuMyAxMi41NCAyMi4yNiA0MS44NSA5LjA4IDU1YTM0LjM0IDM0LjM0IDAgMCAxLTQ4LjU1IDBjLTE3LjU3LTE3LjYtMTEuMDctNDYuOTEgMTEuMjUtNTZ2LTEyM2MtMjAuOC04LjUxLTI0LjYtMzAuNzQtMTguNjQtNDVMMTQyLjU3IDEwMSA4LjQ1IDIzNS4xNGEyOC44NiAyOC44NiAwIDAgMCAwIDQwLjgxbDE5NS42MSAxOTUuNmEyOC44NiAyOC44NiAwIDAgMCA0MC44IDBsMTk0LjY5LTE5NC42OWEyOC44NiAyOC44NiAwIDAgMCAwLTQwLjgxIiAvPjwvc3ZnPg==)
 
-</div>
+
 
 <div class="md-source__repository">
 
 pydantic/pydantic
 
-</div>
 
-</div>
 
-</div>
+
+
+
 
 <div class="md-container" md-component="container">
 
@@ -133,7 +122,7 @@ pydantic/pydantic
 - <a href="../../pydantic_people/" class="md-tabs__link">Pydantic
   People</a>
 
-</div>
+
 
 <div class="md-main" role="main" md-component="main">
 
@@ -157,17 +146,16 @@ data-md-component="source" title="Go to repository"></a>
 
 <div class="md-source__icon md-icon">
 
-![](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdib3g9IjAgMCA0NDggNTEyIj48IS0tISBGb250IEF3ZXNvbWUgRnJlZSA2LjcuMiBieSBAZm9udGF3ZXNvbWUgLSBodHRwczovL2ZvbnRhd2Vzb21lLmNvbSBMaWNlbnNlIC0gaHR0cHM6Ly9mb250YXdlc29tZS5jb20vbGljZW5zZS9mcmVlIChJY29uczogQ0MgQlkgNC4wLCBGb250czogU0lMIE9GTCAxLjEsIENvZGU6IE1JVCBMaWNlbnNlKSBDb3B5cmlnaHQgMjAyNCBGb250aWNvbnMsIEluYy4tLT48cGF0aCBkPSJNNDM5LjU1IDIzNi4wNSAyNDQgNDAuNDVhMjguODcgMjguODcgMCAwIDAtNDAuODEgMGwtNDAuNjYgNDAuNjMgNTEuNTIgNTEuNTJjMjcuMDYtOS4xNCA1Mi42OCAxNi43NyA0My4zOSA0My42OGw0OS42NiA0OS42NmMzNC4yMy0xMS44IDYxLjE4IDMxIDM1LjQ3IDU2LjY5LTI2LjQ5IDI2LjQ5LTcwLjIxLTIuODctNTYtMzcuMzRMMjQwLjIyIDE5OXYxMjEuODVjMjUuMyAxMi41NCAyMi4yNiA0MS44NSA5LjA4IDU1YTM0LjM0IDM0LjM0IDAgMCAxLTQ4LjU1IDBjLTE3LjU3LTE3LjYtMTEuMDctNDYuOTEgMTEuMjUtNTZ2LTEyM2MtMjAuOC04LjUxLTI0LjYtMzAuNzQtMTguNjQtNDVMMTQyLjU3IDEwMSA4LjQ1IDIzNS4xNGEyOC44NiAyOC44NiAwIDAgMCAwIDQwLjgxbDE5NS42MSAxOTUuNmEyOC44NiAyOC44NiAwIDAgMCA0MC44IDBsMTk0LjY5LTE5NC42OWEyOC44NiAyOC44NiAwIDAgMCAwLTQwLjgxIiAvPjwvc3ZnPg==)
 
-</div>
+
 
 <div class="md-source__repository">
 
 pydantic/pydantic
 
-</div>
 
-</div>
+
+
 
 <span class="md-ellipsis"> Get Started </span>
 <span class="md-nav__icon md-icon"></span>
@@ -489,11 +477,11 @@ class="md-ellipsis"> Blog </span></a>
 <a href="../../pydantic_people/" class="md-nav__link"><span
 class="md-ellipsis"> Pydantic People </span></a>
 
-</div>
 
-</div>
 
-</div>
+
+
+
 
 <div class="md-sidebar md-sidebar--secondary" md-component="sidebar"
 md-type="toc">
@@ -546,11 +534,11 @@ md-type="toc">
 - <a href="#the-computed_field-decorator" class="md-nav__link"><span
   class="md-ellipsis"> The computed_field decorator </span></a>
 
-</div>
 
-</div>
 
-</div>
+
+
+
 
 <div class="md-content" md-component="content">
 
@@ -580,7 +568,7 @@ dataclasses:
     class Model(BaseModel):
         name: str = Field(frozen=True)
 
-</div>
+
 
 <div class="admonition note">
 
@@ -597,12 +585,12 @@ class="autorefs autorefs-external">ellipsis</a>:
     class Model(BaseModel):
         name: str = Field(..., frozen=True)
 
-</div>
+
 
 However, its usage is discouraged as it doesn't play well with static
 type checkers.
 
-</div>
+
 
 ## The annotated pattern<a href="#the-annotated-pattern" class="headerlink"
 title="Permanent link">¶</a>
@@ -625,7 +613,7 @@ construct to attach metadata to an annotation:
     class Model(BaseModel):
         name: Annotated[str, Field(strict=True), WithJsonSchema({'extra': 'data'})]
 
-</div>
+
 
 As far as static type checkers are concerned, `name` is still typed as
 `str`, but Pydantic leverages the available metadata to add validation
@@ -676,9 +664,9 @@ can be added this way:
         # Valid: [1, 3]
         # Invalid: [-1, 2]
 
-</div>
 
-</div>
+
+
 
 ## Default values<a href="#default-values" class="headerlink"
 title="Permanent link">¶</a>
@@ -696,7 +684,7 @@ syntax or by providing a value to the `default` argument:
         name: str = 'John Doe'
         age: int = Field(default=20)
 
-</div>
+
 
 <div class="admonition warning">
 
@@ -712,7 +700,7 @@ class="autorefs autorefs-external"><code>Optional</code></a> would be
 given an implicit default of `None` even if no default was explicitly
 specified. This is no longer the case in Pydantic V2.
 
-</div>
+
 
 You can also pass a callable to the `default_factory` argument that will
 be called to generate a default value:
@@ -727,7 +715,7 @@ be called to generate a default value:
     class User(BaseModel):
         id: str = Field(default_factory=lambda: uuid4().hex)
 
-</div>
+
 
 The default factory can also take a single required argument, in which
 case the already validated data will be passed as a dictionary.
@@ -746,7 +734,7 @@ case the already validated data will be passed as a dictionary.
     print(user.username)
     #> [email protected]
 
-</div>
+
 
 The `data` argument will *only* contain the already validated data,
 based on the [order of model fields](../models/#field-ordering) (the
@@ -781,7 +769,7 @@ configuration value) can be used to enable this behavior:
           Input should be a valid integer, unable to parse string as an integer [type=int_parsing, input_value='twelve', input_type=str]
         """
 
-</div>
+
 
 ### Mutable default values<a href="#mutable-default-values" class="headerlink"
 title="Permanent link">¶</a>
@@ -820,7 +808,7 @@ deep copy of the default value when creating each instance of the model:
     print(m2.item_counts)
     #> [{}]
 
-</div>
+
 
 ## Field aliases<a href="#field-aliases" class="headerlink" title="Permanent link">¶</a>
 
@@ -830,7 +818,7 @@ Tip
 
 Read more about aliases in the [dedicated section](../alias/).
 
-</div>
+
 
 For validation and serialization, you can define an alias for a field.
 
@@ -863,7 +851,7 @@ Here is an example of using the `alias` parameter:
     print(user.model_dump(by_alias=True))  # (2)!
     #> {'username': 'johndoe'}
 
-</div>
+
 
 1.  The alias `'username'` is used for instance creation and validation.
 
@@ -902,7 +890,7 @@ If you want to use an alias *only* for validation, you can use the
     print(user.model_dump(by_alias=True))  # (2)!
     #> {'name': 'johndoe'}
 
-</div>
+
 
 1.  The validation alias `'username'` is used during validation.
 2.  The field name `'name'` is used during serialization.
@@ -925,7 +913,7 @@ If you only want to define an alias for *serialization*, you can use the
     print(user.model_dump(by_alias=True))  # (2)!
     #> {'username': 'johndoe'}
 
-</div>
+
 
 1.  The field name `'name'` is used for validation.
 2.  The serialization alias `'username'` is used for serialization.
@@ -946,7 +934,7 @@ model setting, you can control the order of precedence for field alias
 and generated aliases via the `alias_priority` field parameter. You can
 read more about alias precedence [here](../alias/#alias-precedence).
 
-</div>
+
 
 Static type checking/IDE support
 
@@ -965,7 +953,7 @@ synthesize the `__init__` method:
 
     user = User(username='johndoe')  # (1)!
 
-</div>
+
 
 1.  Accepted by type checkers.
 
@@ -989,7 +977,7 @@ name is used:
 
     user = User(name='johndoe')  # (1)!
 
-</div>
+
 
 1.  *Not* accepted by type checkers.
 
@@ -1013,7 +1001,7 @@ only understood by Pydantic):
     user = User(name='johndoe')  # (1)!
     user = User(username='johndoe')  # (2)!
 
-</div>
+
 
 1.  Accepted by type checkers.
 2.  *Not* accepted by type checkers.
@@ -1035,7 +1023,7 @@ during serialization:
     class MyModel(BaseModel):
         my_field: int = Field(validation_alias='myValidationAlias')
 
-</div>
+
 
 with:
 
@@ -1055,7 +1043,7 @@ with:
     print(m.model_dump(by_alias=True))
     #> {'my_field': 1}
 
-</div>
+
 
 <a href="" id="field-constraints"></a>
 
@@ -1101,7 +1089,7 @@ Here's an example:
     positive=1 non_negative=0 negative=-1 non_positive=0 even=2 love_for_pydantic=inf
     """
 
-</div>
+
 
 JSON Schema
 
@@ -1161,7 +1149,7 @@ The above snippet will generate the following JSON Schema:
       ]
     }
 
-</div>
+
 
 See the [JSON Schema Draft
 2020-12](https://json-schema.org/understanding-json-schema/reference/numeric.html#numeric-types)
@@ -1187,9 +1175,9 @@ happen in some cases. To avoid potential issues, you can use
         # Can error in some cases, not recommended:
         non_negative: Optional[int] = Field(ge=0)
 
-</div>
 
-</div>
+
+
 
 ## String Constraints<a href="#string-constraints" class="headerlink"
 title="Permanent link">¶</a>
@@ -1222,7 +1210,7 @@ Here's an example:
     print(foo)
     #> short='foo' long='foobarbaz' regex='123'
 
-</div>
+
 
 1.  Only digits are allowed.
 
@@ -1265,7 +1253,7 @@ The above snippet will generate the following JSON Schema:
       ]
     }
 
-</div>
+
 
 ## Decimal Constraints<a href="#decimal-constraints" class="headerlink"
 title="Permanent link">¶</a>
@@ -1295,7 +1283,7 @@ Here's an example:
     print(foo)
     #> precise=Decimal('123.45')
 
-</div>
+
 
 ## Dataclass Constraints<a href="#dataclass-constraints" class="headerlink"
 title="Permanent link">¶</a>
@@ -1333,7 +1321,7 @@ Here's an example:
     print(model.model_dump())  # (1)!
     #> {'foo': {'bar': 'bar', 'qux': 'qux'}}
 
-</div>
+
 
 1.  The `baz` field is not included in the `model_dump()` output, since
     it is an init-only field.
@@ -1358,7 +1346,7 @@ included in the string representation of the model.
     print(user)
     #> name='John'
 
-</div>
+
 
 1.  This is the default value.
 
@@ -1379,7 +1367,7 @@ name:
 
 Python 3.9 and abovePython 3.10 and above
 
-</div>
+
 
 <div class="tabbed-content">
 
@@ -1409,12 +1397,12 @@ Python 3.9 and abovePython 3.10 and above
     print(Model.model_validate({'pet': {'pet_type': 'cat', 'age': 12}}))  # (1)!
     #> pet=Cat(pet_type='cat', age=12)
 
-</div>
+
 
 1.  See more about [Validating data](../models/#validating-data) in the
     [Models](../models/) page.
 
-</div>
+
 
 <div class="tabbed-block">
 
@@ -1442,16 +1430,16 @@ Python 3.9 and abovePython 3.10 and above
     print(Model.model_validate({'pet': {'pet_type': 'cat', 'age': 12}}))  # (1)!
     #> pet=Cat(pet_type='cat', age=12)
 
-</div>
+
 
 1.  See more about [Validating data](../models/#validating-data) in the
     [Models](../models/) page.
 
-</div>
 
-</div>
 
-</div>
+
+
+
 
 The following example shows how to use the `discriminator` keyword
 argument with a `Discriminator` instance:
@@ -1462,7 +1450,7 @@ argument with a `Discriminator` instance:
 
 Python 3.9 and abovePython 3.10 and above
 
-</div>
+
 
 <div class="tabbed-content">
 
@@ -1503,9 +1491,9 @@ Python 3.9 and abovePython 3.10 and above
     print(repr(Model.model_validate({'pet': {'pet_kind': 'dog', 'age': 12}})))
     #> Model(pet=Dog(pet_kind='dog', age=12))
 
-</div>
 
-</div>
+
+
 
 <div class="tabbed-block">
 
@@ -1544,13 +1532,13 @@ Python 3.9 and abovePython 3.10 and above
     print(repr(Model.model_validate({'pet': {'pet_kind': 'dog', 'age': 12}})))
     #> Model(pet=Dog(pet_kind='dog', age=12))
 
-</div>
 
-</div>
 
-</div>
 
-</div>
+
+
+
+
 
 You can also take advantage of `Annotated` to define your discriminated
 unions. See the [Discriminated Unions](../unions/#discriminated-unions)
@@ -1579,7 +1567,7 @@ the field where `strict=True`.
     print(user)
     #> name='John' age=42
 
-</div>
+
 
 1.  This is the default value.
 2.  The `age` field is not validated in the strict mode. Therefore, it
@@ -1622,7 +1610,7 @@ for more details.
           Field is frozen [type=frozen_field, input_value='Jane', input_type=str]
         """
 
-</div>
+
 
 1.  Since `name` field is frozen, the assignment is not allowed.
 
@@ -1647,7 +1635,7 @@ See the following example:
     print(user.model_dump())  # (1)!
     #> {'name': 'John'}
 
-</div>
+
 
 1.  The `age` field is not included in the `model_dump()` output, since
     it is excluded.
@@ -1690,7 +1678,7 @@ title="Permanent link">¶</a>
     print(Model.model_json_schema()['properties']['deprecated_field'])
     #> {'deprecated': True, 'title': 'Deprecated Field', 'type': 'integer'}
 
-</div>
+
 
 ### `deprecated` via the `warnings.deprecated` decorator<a href="#deprecated-via-the-warningsdeprecated-decorator"
 class="headerlink" title="Permanent link">¶</a>
@@ -1702,7 +1690,7 @@ Note
 You can only use the `deprecated` decorator in this way if you have
 `typing_extensions` \>= 4.9.0 installed.
 
-</div>
+
 
 <div class="language-python highlight">
 
@@ -1723,7 +1711,7 @@ You can only use the `deprecated` decorator in this way if you have
                 int, Field(deprecated=deprecated('This is deprecated'))
             ]
 
-</div>
+
 
 ### `deprecated` as a boolean<a href="#deprecated-as-a-boolean" class="headerlink"
 title="Permanent link">¶</a>
@@ -1742,7 +1730,7 @@ title="Permanent link">¶</a>
     print(Model.model_json_schema()['properties']['deprecated_field'])
     #> {'deprecated': True, 'title': 'Deprecated Field', 'type': 'integer'}
 
-</div>
+
 
 <div class="admonition note">
 
@@ -1752,7 +1740,7 @@ The current implementation of this feature does not take into account
 the `category` and `stacklevel` arguments to the `deprecated` decorator.
 This might land in a future version of Pydantic.
 
-</div>
+
 
 <div class="admonition warning">
 
@@ -1782,9 +1770,9 @@ explicitly ignore it:
                 warnings.simplefilter('ignore', DeprecationWarning)
                 self.deprecated_field = self.deprecated_field * 2
 
-</div>
 
-</div>
+
+
 
 ## Customizing JSON Schema<a href="#customizing-json-schema" class="headerlink"
 title="Permanent link">¶</a>
@@ -1832,7 +1820,7 @@ class="autorefs autorefs-external"><code>cached_property</code></a>).
 However, note that Pydantic will *not* perform any additional logic on
 the wrapped property (validation, cache invalidation, etc.).
 
-</div>
+
 
 Here's an example of the JSON schema (in serialization mode) generated
 for a model with a computed field:
@@ -1868,7 +1856,7 @@ for a model with a computed field:
     }
     """
 
-</div>
+
 
 1.  If not specified,
     <a href="../../api/fields/#pydantic.fields.computed_field"
@@ -1903,7 +1891,7 @@ Here's an example using the `model_dump` method with a computed field:
     print(b.model_dump())
     #> {'width': 1.0, 'height': 2.0, 'depth': 3.0, 'volume': 6.0}
 
-</div>
+
 
 As with regular fields, computed fields can be marked as being
 deprecated:
@@ -1926,7 +1914,7 @@ deprecated:
         def volume(self) -> float:
             return self.width * self.height * self.depth
 
-</div>
+
 
 Was this page helpful?
 
@@ -1934,11 +1922,9 @@ Was this page helpful?
 
 <div class="md-feedback__list">
 
-![](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdib3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTUgOXYxMkgxVjl6bTQgMTJhMiAyIDAgMCAxLTItMlY5YzAtLjU1LjIyLTEuMDUuNTktMS40MUwxNC4xNyAxbDEuMDYgMS4wNmMuMjcuMjcuNDQuNjQuNDQgMS4wNWwtLjAzLjMyTDE0LjY5IDhIMjFhMiAyIDAgMCAxIDIgMnYyYzAgLjI2LS4wNS41LS4xNC43M2wtMy4wMiA3LjA1QzE5LjU0IDIwLjUgMTguODMgMjEgMTggMjF6bTAtMmg5LjAzTDIxIDEydi0yaC04Ljc5bDEuMTMtNS4zMkw5IDkuMDN6IiAvPjwvc3ZnPg==)
 
-![](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdib3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTE5IDE1VjNoNHYxMnpNMTUgM2EyIDIgMCAwIDEgMiAydjEwYzAgLjU1LS4yMiAxLjA1LS41OSAxLjQxTDkuODMgMjNsLTEuMDYtMS4wNmMtLjI3LS4yNy0uNDQtLjY0LS40NC0xLjA2bC4wMy0uMzEuOTUtNC41N0gzYTIgMiAwIDAgMS0yLTJ2LTJjMC0uMjYuMDUtLjUuMTQtLjczbDMuMDItNy4wNUM0LjQ2IDMuNSA1LjE3IDMgNiAzem0wIDJINS45N0wzIDEydjJoOC43OGwtMS4xMyA1LjMyTDE1IDE0Ljk3eiIgLz48L3N2Zz4=)
 
-</div>
+
 
 <div class="md-feedback__note">
 
@@ -1946,26 +1932,25 @@ Was this page helpful?
 
 Thanks for your feedback!
 
-</div>
+
 
 <div md-value="0" hidden="">
 
 Thanks for your feedback!
 
-</div>
 
-</div>
 
-</div>
 
-</div>
 
-</div>
 
-![](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdib3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTEzIDIwaC0yVjhsLTUuNSA1LjUtMS40Mi0xLjQyTDEyIDQuMTZsNy45MiA3LjkyLTEuNDIgMS40MkwxMyA4eiIgLz48L3N2Zz4=)
-Back to top
 
-</div>
+
+
+
+
+
+
+
 
 <div class="md-footer-meta md-typeset">
 
@@ -1977,22 +1962,22 @@ Made with
 <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank"
 rel="noopener">Material for MkDocs</a>
 
-</div>
 
-</div>
 
-</div>
 
-</div>
+
+
+
+
 
 <div class="md-dialog" md-component="dialog">
 
 <div class="md-dialog__inner md-typeset">
 
-</div>
 
-</div>
+
+
 
 <div class="md-progress" md-component="progress" role="progressbar">
 
-</div>
+

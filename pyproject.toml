@@ -1,12 +1,21 @@
 [project]
 name = "std-config"
-version = "0.1.1"
-description = "Python environment loader that follows XDG"
+version = "0.1.2"
+description = "Python environment loader that follows XDG base directory specifications"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "pydantic>=2.11.3",
     "pydantic-settings>=2.8.1",
-    "pytest>=8.3.5",
     "xdg-base-dirs>=6.0.2",
 ]
+
+[project.optional-dependencies]
+test = [
+    "pytest>=8.3.5",
+    "toml>=0.10.2",
+    "pyyaml>=6.0.2",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

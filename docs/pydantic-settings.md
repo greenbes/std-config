@@ -1,23 +1,6 @@
-<div md-component="skip">
-
-<a href="#settings-management" class="md-skip">Skip to content</a>
-
-</div>
-
 <div md-component="announce">
 
 <div class="md-banner__inner md-grid md-typeset">
-
-![](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdib3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTE5IDYuNDEgMTcuNTkgNSAxMiAxMC41OSA2LjQxIDUgNSA2LjQxIDEwLjU5IDEyIDUgMTcuNTkgNi40MSAxOSAxMiAxMy40MSAxNy41OSAxOSAxOSAxNy41OSAxMy40MSAxMnoiIC8+PC9zdmc+)
-
-What's new — we've launched [Pydantic
-Logfire](https://pydantic.dev/articles/logfire-announcement) <img
-src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.0.3/assets/svg/1f525.svg"
-title=":fire:" class="twemoji" alt="🔥" /> to help you monitor and
-understand your
-<a href="https://logfire.pydantic.dev/docs/integrations/pydantic/"
-id="logfire-app-type" target="_blank">Pydantic validations.</a>
-
 </div>
 
 </div>
@@ -27,11 +10,6 @@ id="logfire-app-type" target="_blank">Pydantic validations.</a>
 </div>
 
 <div class="md-header" md-component="header">
-
-<a href="../.." class="md-header__button md-logo" aria-label="Pydantic"
-data-md-component="logo" title="Pydantic"><img
-src="../../logo-white.svg" alt="logo" /></a>
-![](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdib3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTMgNmgxOHYySDN6bTAgNWgxOHYySDN6bTAgNWgxOHYySDN6IiAvPjwvc3ZnPg==)
 
 <div class="md-header__title" md-component="header-title">
 
@@ -53,20 +31,11 @@ src="../../logo-white.svg" alt="logo" /></a>
 
 </div>
 
-![](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdib3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTEyIDJhNyA3IDAgMCAwLTcgN2MwIDIuMzggMS4xOSA0LjQ3IDMgNS43NFYxN2ExIDEgMCAwIDAgMSAxaDZhMSAxIDAgMCAwIDEtMXYtMi4yNmMxLjgxLTEuMjcgMy0zLjM2IDMtNS43NGE3IDcgMCAwIDAtNy03TTkgMjFhMSAxIDAgMCAwIDEgMWg0YTEgMSAwIDAgMCAxLTF2LTFIOXoiIC8+PC9zdmc+)
-![](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdib3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTEyIDJhNyA3IDAgMCAxIDcgN2MwIDIuMzgtMS4xOSA0LjQ3LTMgNS43NFYxN2ExIDEgMCAwIDEtMSAxSDlhMSAxIDAgMCAxLTEtMXYtMi4yNkM2LjE5IDEzLjQ3IDUgMTEuMzggNSA5YTcgNyAwIDAgMSA3LTdNOSAyMXYtMWg2djFhMSAxIDAgMCAxLTEgMWgtNGExIDEgMCAwIDEtMS0xbTMtMTdhNSA1IDAgMCAwLTUgNWMwIDIuMDUgMS4yMyAzLjgxIDMgNC41OFYxNmg0di0yLjQyYzEuNzctLjc3IDMtMi41MyAzLTQuNThhNSA1IDAgMCAwLTUtNSIgLz48L3N2Zz4=)
-![](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdib3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTkgMmMzLjg3IDAgNyAzLjEzIDcgNyAwIDIuMzgtMS4xOSA0LjQ3LTMgNS43NFYxN2MwIC41NS0uNDUgMS0xIDFINmMtLjU1IDAtMS0uNDUtMS0xdi0yLjI2QzMuMTkgMTMuNDcgMiAxMS4zOCAyIDljMC0zLjg3IDMuMTMtNyA3LTdNNiAyMXYtMWg2djFjMCAuNTUtLjQ1IDEtMSAxSDdjLS41NSAwLTEtLjQ1LTEtMU05IDRDNi4yNCA0IDQgNi4yNCA0IDljMCAyLjA1IDEuMjMgMy44MSAzIDQuNThWMTZoNHYtMi40MmMxLjc3LS43NyAzLTIuNTMgMy00LjU4IDAtMi43Ni0yLjI0LTUtNS01bTEwIDloLTJsLTMuMiA5aDEuOWwuNy0yaDMuMmwuNyAyaDEuOXptLTIuMTUgNS42NUwxOCAxNWwxLjE1IDMuNjV6IiAvPjwvc3ZnPg==)
-
-![](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdib3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTkuNSAzQTYuNSA2LjUgMCAwIDEgMTYgOS41YzAgMS42MS0uNTkgMy4wOS0xLjU2IDQuMjNsLjI3LjI3aC43OWw1IDUtMS41IDEuNS01LTV2LS43OWwtLjI3LS4yN0E2LjUyIDYuNTIgMCAwIDEgOS41IDE2IDYuNSA2LjUgMCAwIDEgMyA5LjUgNi41IDYuNSAwIDAgMSA5LjUgM20wIDJDNyA1IDUgNyA1IDkuNVM3IDE0IDkuNSAxNCAxNCAxMiAxNCA5LjUgMTIgNSA5LjUgNSIgLz48L3N2Zz4=)
 
 <div class="md-search" role="dialog">
 
 <div class="md-search__inner" role="search">
 
-![](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdib3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTkuNSAzQTYuNSA2LjUgMCAwIDEgMTYgOS41YzAgMS42MS0uNTkgMy4wOS0xLjU2IDQuMjNsLjI3LjI3aC43OWw1IDUtMS41IDEuNS01LTV2LS43OWwtLjI3LS4yN0E2LjUxNiA2LjUxNiAwIDAgMSA5LjUgMTYgNi41IDYuNSAwIDAgMSAzIDkuNSA2LjUgNi41IDAgMCAxIDkuNSAzbTAgMkM3IDUgNSA3IDUgOS41UzcgMTQgOS41IDE0IDE0IDEyIDE0IDkuNSAxMiA1IDkuNSA1WiIgLz48L3N2Zz4=)
-![](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdib3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTIwIDExdjJIOGw1LjUgNS41LTEuNDIgMS40Mkw0LjE2IDEybDcuOTItNy45MkwxMy41IDUuNSA4IDExaDEyWiIgLz48L3N2Zz4=)
-
-![](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdib3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTE5IDYuNDEgMTcuNTkgNSAxMiAxMC41OSA2LjQxIDUgNSA2LjQxIDEwLjU5IDEyIDUgMTcuNTkgNi40MSAxOSAxMiAxMy40MSAxNy41OSAxOSAxOSAxNy41OSAxMy40MSAxMiAxOSA2LjQxWiIgLz48L3N2Zz4=)
 
 <div class="md-search__suggest">
 
@@ -101,7 +70,6 @@ data-md-component="source" title="Go to repository"></a>
 
 <div class="md-source__icon md-icon">
 
-![](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdib3g9IjAgMCA0NDggNTEyIj48IS0tISBGb250IEF3ZXNvbWUgRnJlZSA2LjcuMiBieSBAZm9udGF3ZXNvbWUgLSBodHRwczovL2ZvbnRhd2Vzb21lLmNvbSBMaWNlbnNlIC0gaHR0cHM6Ly9mb250YXdlc29tZS5jb20vbGljZW5zZS9mcmVlIChJY29uczogQ0MgQlkgNC4wLCBGb250czogU0lMIE9GTCAxLjEsIENvZGU6IE1JVCBMaWNlbnNlKSBDb3B5cmlnaHQgMjAyNCBGb250aWNvbnMsIEluYy4tLT48cGF0aCBkPSJNNDM5LjU1IDIzNi4wNSAyNDQgNDAuNDVhMjguODcgMjguODcgMCAwIDAtNDAuODEgMGwtNDAuNjYgNDAuNjMgNTEuNTIgNTEuNTJjMjcuMDYtOS4xNCA1Mi42OCAxNi43NyA0My4zOSA0My42OGw0OS42NiA0OS42NmMzNC4yMy0xMS44IDYxLjE4IDMxIDM1LjQ3IDU2LjY5LTI2LjQ5IDI2LjQ5LTcwLjIxLTIuODctNTYtMzcuMzRMMjQwLjIyIDE5OXYxMjEuODVjMjUuMyAxMi41NCAyMi4yNiA0MS44NSA5LjA4IDU1YTM0LjM0IDM0LjM0IDAgMCAxLTQ4LjU1IDBjLTE3LjU3LTE3LjYtMTEuMDctNDYuOTEgMTEuMjUtNTZ2LTEyM2MtMjAuOC04LjUxLTI0LjYtMzAuNzQtMTguNjQtNDVMMTQyLjU3IDEwMSA4LjQ1IDIzNS4xNGEyOC44NiAyOC44NiAwIDAgMCAwIDQwLjgxbDE5NS42MSAxOTUuNmEyOC44NiAyOC44NiAwIDAgMCA0MC44IDBsMTk0LjY5LTE5NC42OWEyOC44NiAyOC44NiAwIDAgMCAwLTQwLjgxIiAvPjwvc3ZnPg==)
 
 </div>
 
@@ -147,8 +115,8 @@ md-type="navigation">
 <div class="md-sidebar__inner">
 
 <a href="../.." class="md-nav__button md-logo" aria-label="Pydantic"
-data-md-component="logo" title="Pydantic"><img
-src="../../logo-white.svg" alt="logo" /></a> Pydantic
+data-md-component="logo" title="Pydantic">
+</a> Pydantic
 
 <div class="md-nav__source">
 
@@ -157,7 +125,6 @@ data-md-component="source" title="Go to repository"></a>
 
 <div class="md-source__icon md-icon">
 
-![](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdib3g9IjAgMCA0NDggNTEyIj48IS0tISBGb250IEF3ZXNvbWUgRnJlZSA2LjcuMiBieSBAZm9udGF3ZXNvbWUgLSBodHRwczovL2ZvbnRhd2Vzb21lLmNvbSBMaWNlbnNlIC0gaHR0cHM6Ly9mb250YXdlc29tZS5jb20vbGljZW5zZS9mcmVlIChJY29uczogQ0MgQlkgNC4wLCBGb250czogU0lMIE9GTCAxLjEsIENvZGU6IE1JVCBMaWNlbnNlKSBDb3B5cmlnaHQgMjAyNCBGb250aWNvbnMsIEluYy4tLT48cGF0aCBkPSJNNDM5LjU1IDIzNi4wNSAyNDQgNDAuNDVhMjguODcgMjguODcgMCAwIDAtNDAuODEgMGwtNDAuNjYgNDAuNjMgNTEuNTIgNTEuNTJjMjcuMDYtOS4xNCA1Mi42OCAxNi43NyA0My4zOSA0My42OGw0OS42NiA0OS42NmMzNC4yMy0xMS44IDYxLjE4IDMxIDM1LjQ3IDU2LjY5LTI2LjQ5IDI2LjQ5LTcwLjIxLTIuODctNTYtMzcuMzRMMjQwLjIyIDE5OXYxMjEuODVjMjUuMyAxMi41NCAyMi4yNiA0MS44NSA5LjA4IDU1YTM0LjM0IDM0LjM0IDAgMCAxLTQ4LjU1IDBjLTE3LjU3LTE3LjYtMTEuMDctNDYuOTEgMTEuMjUtNTZ2LTEyM2MtMjAuOC04LjUxLTI0LjYtMzAuNzQtMTguNjQtNDVMMTQyLjU3IDEwMSA4LjQ1IDIzNS4xNGEyOC44NiAyOC44NiAwIDAgMCAwIDQwLjgxbDE5NS42MSAxOTUuNmEyOC44NiAyOC44NiAwIDAgMCA0MC44IDBsMTk0LjY5LTE5NC42OWEyOC44NiAyOC44NiAwIDAgMCAwLTQwLjgxIiAvPjwvc3ZnPg==)
 
 </div>
 
@@ -3444,9 +3411,6 @@ Was this page helpful?
 
 <div class="md-feedback__list">
 
-![](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdib3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTUgOXYxMkgxVjl6bTQgMTJhMiAyIDAgMCAxLTItMlY5YzAtLjU1LjIyLTEuMDUuNTktMS40MUwxNC4xNyAxbDEuMDYgMS4wNmMuMjcuMjcuNDQuNjQuNDQgMS4wNWwtLjAzLjMyTDE0LjY5IDhIMjFhMiAyIDAgMCAxIDIgMnYyYzAgLjI2LS4wNS41LS4xNC43M2wtMy4wMiA3LjA1QzE5LjU0IDIwLjUgMTguODMgMjEgMTggMjF6bTAtMmg5LjAzTDIxIDEydi0yaC04Ljc5bDEuMTMtNS4zMkw5IDkuMDN6IiAvPjwvc3ZnPg==)
-
-![](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdib3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTE5IDE1VjNoNHYxMnpNMTUgM2EyIDIgMCAwIDEgMiAydjEwYzAgLjU1LS4yMiAxLjA1LS41OSAxLjQxTDkuODMgMjNsLTEuMDYtMS4wNmMtLjI3LS4yNy0uNDQtLjY0LS40NC0xLjA2bC4wMy0uMzEuOTUtNC41N0gzYTIgMiAwIDAgMS0yLTJ2LTJjMC0uMjYuMDUtLjUuMTQtLjczbDMuMDItNy4wNUM0LjQ2IDMuNSA1LjE3IDMgNiAzem0wIDJINS45N0wzIDEydjJoOC43OGwtMS4xMyA1LjMyTDE1IDE0Ljk3eiIgLz48L3N2Zz4=)
 
 </div>
 
@@ -3472,7 +3436,6 @@ Thanks for your feedback!
 
 </div>
 
-![](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdib3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTEzIDIwaC0yVjhsLTUuNSA1LjUtMS40Mi0xLjQyTDEyIDQuMTZsNy45MiA3LjkyLTEuNDIgMS40MkwxMyA4eiIgLz48L3N2Zz4=)
 Back to top
 
 </div>
